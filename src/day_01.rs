@@ -4,7 +4,7 @@ use crate::iter::WindowIterator;
 
 fn running_increases<const WINDOW_LEN: usize>(data: &str) -> usize {
     data.lines()
-        .map(|line| u32::from_str_radix(line, 10).unwrap())
+        .map(|line| line.parse::<u32>().unwrap())
         .window::<WINDOW_LEN>()
         .map(|measurements| measurements.iter().sum::<u32>())
         .window::<2>()

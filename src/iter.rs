@@ -46,6 +46,8 @@ where
         }
 
         let mut result = [T::default(); N];
+        #[allow(clippy::manual_memcpy)]
+        // reason = "clippy bug: https://github.com/rust-lang/rust-clippy/issues/8160"
         for i in 0..N {
             result[i] = self.buffer[i];
         }
