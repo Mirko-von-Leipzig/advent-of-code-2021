@@ -22,7 +22,7 @@ mod part_1 {
     }
 
     #[test]
-    fn answer() {
+    fn solution() {
         let data = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/input/day_01"));
         let answer = running_increases::<1>(data);
         assert_eq!(answer, 1233);
@@ -39,7 +39,7 @@ mod part_2 {
     }
 
     #[test]
-    fn answer() {
+    fn solution() {
         let data = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/input/day_01"));
         let answer = running_increases::<3>(data);
         assert_eq!(answer, 1275);
