@@ -80,8 +80,10 @@ impl FromStr for Direction {
 
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         let mut words = s.split_whitespace();
-        let direction = words.next().ok_or("missing direction".to_string())?;
-        let amount = words.next().ok_or("missing amount".to_string())?;
+        let direction = words
+            .next()
+            .ok_or_else(|| "missing direction".to_string())?;
+        let amount = words.next().ok_or_else(|| "missing amount".to_string())?;
         let amount = amount.parse::<u32>().map_err(|err| err.to_string())?;
 
         match direction {
